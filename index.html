@@ -65,12 +65,21 @@
 
         <section>
             <h2>Форма обратной связи</h2>
-            <form action="#" method="post">
-                <input type="text" name="name" placeholder="Ваше имя" required>
-                <input type="email" name="email" placeholder="Ваш email" required>
-                <textarea name="message" placeholder="Сообщение" rows="5" required></textarea>
-                <button type="submit">Отправить</button>
-            </form>
+            <form
+  action="https://formspree.io/f/xnpnaprb"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
         </section>
     </div>
     <button onclick="document.location='Игры которыми увлекаюсь.html'">Мои любимые игры</button>
