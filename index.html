@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Личная страница Гусева Данила Олеговича</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        header {
+            background: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+        button {
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Личная страница Гусева Данила Олеговича</h1>
+        </header>
+        
+        <section>
+            <h2>Обо мне</h2>
+            <p>Привет! Меня зовут Гусев Данила Олегович. Я студент Слободского колледжа педагогики и социальных отношений, обучаюсь на программиста.</p>
+            <p>Контактная информация: <a href="mailto:roldanik3@gmail.com">roldanik3@gmail.com</a></p>
+        </section>
+
+        <section>
+            <h2>Мои увлечения</h2>
+            <ul>
+                <li>Программирование и разработка веб-сайтов</li>
+                <li>Гейминг</li>
+                <li>Чтение технической литературы</li>
+                <li>Фотография</li>
+                <li>Спорт</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Форма обратной связи</h2>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="email" name="email" placeholder="Ваш email" required>
+                <textarea name="message" placeholder="Сообщение" rows="5" required></textarea>
+                <button type="submit">Отправить</button>
+            </form>
+        </section>
+    </div>
+    <button onclick="document.location='Игры которыми увлекаюсь.html'">Мои любимые игры</button>
+    <button onclick="document.location='Техническая литература.html'">Техническая литература</button>
+    <button onclick="document.location='Спорт.html'">Любимый спорт</button>
+</body>
+</html>
