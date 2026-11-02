@@ -8,52 +8,32 @@
 <body>
 <style>
      body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-        }
-        .game-section {
-            margin-bottom: 30px;
-        }
-        .game-image {
-            max-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
 
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-        }
-        header {
-            background: #f0f0f0;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        form {
-            margin-top: 20px;
-        }
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-        }
-        button {
-            padding: 10px 15px;
-            background: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.car-img {
+    width: 200px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    
+    
+    transition: opacity 0.5s ease;
+}
+       
     .bas {position: relative; width: 1000px; margin: auto;}
 </style>
     <h1>6.1. Выбор картинки</h1>
