@@ -1,1 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Светофоры</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
 
+        .traffic-light-container {
+            text-align: center;
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .traffic-light {
+            width: 120px;
+            height: 300px;
+            background-color: #333;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin: 0 auto;
+        }
+
+        .light {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .red {
+            background-color: #4a0000;
+            border: 3px solid #666;
+        }
+
+        .yellow {
+            background-color: #4a4a00;
+            border: 3px solid #666;
+        }
+
+        .green {
+            background-color: #004a00;
+            border: 3px solid #666;
+        }
+
+        .red.active {
+            background-color: #ff0000;
+            box-shadow: 0 0 30px #ff0000, inset 0 5px 15px rgba(0,0,0,0.3);
+            border: 3px solid #cc0000;
+        }
+
+        .yellow.active {
+            background-color: #ffff00;
+            box-shadow: 0 0 30px #ffff00, inset 0 5px 15px rgba(0,0,0,0.3);
+            border: 3px solid #cccc00;
+        }
+
+        .green.active {
+            background-color: #00ff00;
+            box-shadow: 0 0 30px #00ff00, inset 0 5px 15px rgba(0,0,0,0.3);
+            border: 3px solid #00cc00;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 30px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0,0,0,0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .status {
+            margin-top: 15px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            min-height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Первый светофор - автоматический -->
+    <div class="traffic-light-container">
+        <h2>Автоматический светофор</h2>
+        <div class="traffic-light" id="autoTrafficLight">
+            <div class="light red" id="autoRed"></div>
+            <div class="light yellow" id="autoYellow"></div>
+            <div class="light green" id="autoGreen"></div>
+        </div>
+        <div class="status" id="autoStatus">Красный</div>
+    </div>
+
+    <!-- Второй светофор - с кнопкой -->
+    <div class="traffic-light-container">
+        <h2>Светофор с кнопкой</h2>
+        <div class="traffic-light" id="manualTrafficLight">
+            <div class="light red active" id="manualRed"></div>
+            <div class="light yellow" id="manualYellow"></div>
+            <div class="light green" id="manualGreen"></div>
+        </div>
+        <button id="startButton" onclick="startManualTraffic()">Запустить</button>
+        <div class="status" id="manualStatus">Ожидание</div>
+    </div>
+
+    <script>
+        // Автоматический светофор
+        let currentAutoColor = 'red';
+        
+        function setAutoLight(color) {
+            document.getElementById('autoRed').classList.remove('active');
+            document.getElementById('autoYellow').classList.remove('active');
+            document.getElementById('autoGreen').classList.remove('active');
+            
+            document.getElementById('auto' + color.charAt(0).toUpperCase() + color.slice(1)).classList.add('active');
+            
+            const statusText = {
+                'red': 'Красный',
+                'yellow': 'Жёлтый',
+                'green': 'Зелёный'
+            };
+            document.getElementById('autoStatus').textContent = statusText[color];
+        }
+
+        function autoTrafficCycle() {
+            if (currentAutoColor === 'red') {
+                setTimeout(() => {
+                    currentAutoColor = 'green';
+                    setAutoLight(currentAutoColor);
+                    autoTrafficCycle();
+                }, 5000);
+            } else if (currentAutoColor === 'green') {
+                setTimeout(() => {
+                    currentAutoColor = 'yellow';
+                    setAutoLight(currentAutoColor);
+                    autoTrafficCycle();
+                }, 5000);
+            } else if (currentAutoColor === 'yellow') {
+                setTimeout(() => {
+                    currentAutoColor = 'red';
+                    setAutoLight(currentAutoColor);
+                    autoTrafficCycle();
+                }, 2000);
+            }
+        }
+
+        setAutoLight('red');
+        autoTrafficCycle();
+
+        // Ручной светофор
+        let manualRunning = false;
+        
+        function setManualLight(color) {
+            document.getElementById('manualRed').classList.remove('active');
+            document.getElementById('manualYellow').classList.remove('active');
+            document.getElementById('manualGreen').classList.remove('active');
+            
+            document.getElementById('manual' + color.charAt(0).toUpperCase() + color.slice(1)).classList.add('active');
+            
+            const statusText = {
+                'red': 'Красный',
+                'yellow': 'Жёлтый',
+                'green': 'Зелёный'
+            };
+            document.getElementById('manualStatus').textContent = statusText[color];
+        }
+
+        function startManualTraffic() {
+            if (manualRunning) return;
+            
+            manualRunning = true;
+            document.getElementById('startButton').disabled = true;
+            document.getElementById('startButton').textContent = 'Работает...';
+            
+            let step = 0;
+            
+            function manualCycle() {
+                if (step === 0) {
+                    setManualLight('red');
+                    setTimeout(() => {
+                        step++;
+                        manualCycle();
+                    }, 5000);
+                } else if (step === 1) {
+                    setManualLight('green');
+                    setTimeout(() => {
+                        step++;
+                        manualCycle();
+                    }, 5000);
+                } else if (step === 2) {
+                    setManualLight('yellow');
+                    setTimeout(() => {
+                        step++;
+                        manualCycle();
+                    }, 2000);
+                } else if (step === 3) {
+                    setManualLight('red');
+                    setTimeout(() => {
+                        step = 0;
+                        manualCycle();
+                    }, 5000);
+                }
+            }
+            
+            manualCycle();
+        }
+    </script>
+</body>
+</html>
