@@ -2,92 +2,52 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Личная страница Гусева Данила Олеговича</title>
-   <link rel="icon" href="https://roldanik3-ux.github.io/Sitehome/favicon.png" type="image/png">
+    <title>Гусев Данила</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
-        }
-        header {
-            background: #f0f0f0;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        form {
-            margin-top: 20px;
-        }
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-        }
-        button {
-            padding: 10px 15px;
-            background: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
+        body { font-family: Arial; max-width: 600px; margin: 20px auto; padding: 0 15px; }
+        .nav { border: 2px solid #4a76c4; border-radius: 10px; overflow: hidden; margin: 15px 0; }
+        .nav h3 { margin: 0; padding: 10px; background: #4a76c4; color: #fff; }
+        .nav a { display: block; padding: 10px; color: #4a76c4; text-decoration: none; border-top: 1px solid #ddd; }
+        .nav a:hover { background: #eef2f7; }
+        h2 { color: #4a76c4; }
+        input, textarea { width: 100%; padding: 6px; margin: 4px 0 10px; box-sizing: border-box; }
+        button { padding: 8px 15px; background: #4a76c4; color: #fff; border: none; border-radius: 5px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Личная страница Гусева Данила Олеговича</h1>
-        </header>
-        
-        <section>
-            <h2>Обо мне</h2>
-            <p>Привет! Меня зовут Гусев Данила Олегович. Я студент Слободского колледжа педагогики и социальных отношений, обучаюсь на программиста.</p>
-            <p>Контактная информация: <a href="mailto:roldanik3@gmail.com">roldanik3@gmail.com</a></p>
-        </section>
 
-        <section>
-            <h2>Мои увлечения</h2>
-            <ul>
-                <li>Программирование и разработка веб-сайтов</li>
-                <li>Гейминг</li>
-                <li>Чтение технической литературы</li>
-                <li>Фотография</li>
-                <li>Спорт</li>
-            </ul>
-        </section>
-       
-        <section>
-            <h2>Форма обратной связи</h2>
-            <form
-  action="https://formspree.io/f/xnpnaprb"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
-        </section>
+    <h1>Гусев Данила Олегович</h1>
+
+    <div class="nav">
+        <h3>📂 Перейти на страницу</h3>
+        <a href="Игры которыми увлекаюсь.html">🎮 Мои любимые игры</a>
+        <a href="Svetofor.html">🚦 Светофор</a>
+        <a href="Техническая литература.html">📚 Техническая литература</a>
+        <a href="Спорт.html">⚽ Любимый спорт</a>
+        <a href="Опрос.html">📝 Опрос</a>
+        <a href="Прямоугольник.html">📐 Прямоугольник</a>
+        <a href="6.1.Выбор картинки.html">🖼️ Выбор картинки</a>
     </div>
-    <button onclick="document.location='Игры которыми увлекаюсь.html'">Мои любимые игры</button>
-    <button onclick="document.location='Svetofor.html'">Светофор</button>
-    <button onclick="document.location='Техническая литература.html'">Техническая литература</button>
-    <button onclick="document.location='Спорт.html'">Любимый спорт</button>
-    <button onclick="document.location='Опрос.html'">Опрос</button>
-     <button onclick="document.location='Прямоугольник.html'">Прямоугольник</button>
-    <button onclick="document.location='6.1.Выбор картинки.html'">6.1.Выбор картинки</button>
+
+    <h2>Обо мне</h2>
+    <p>Студент Слободского колледжа педагогики, учусь на программиста.</p>
+    <p>Почта: <a href="mailto:roldanik3@gmail.com">roldanik3@gmail.com</a></p>
+
+    <h2>Увлечения</h2>
+    <ul>
+        <li>Программирование</li>
+        <li>Гейминг</li>
+        <li>Чтение</li>
+        <li>Фотография</li>
+        <li>Спорт</li>
+    </ul>
+
+    <h2>Обратная связь</h2>
+    <form action="https://formspree.io/f/xnpnaprb" method="POST">
+        <input type="email" name="email" placeholder="Ваш email" required>
+        <textarea name="message" placeholder="Сообщение" required></textarea>
+        <button type="submit">Отправить</button>
+    </form>
+
 </body>
 </html>
