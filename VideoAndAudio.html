@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Видео и Аудио</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h2 { color: #333; }
+        video, audio {
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        video { background: #000; }
+    </style>
+</head>
+<body>
 
+    <h2>Видео</h2>
+    <video controls poster="preview.jpg">
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.webm" type="video/webm">
+        Ваш браузер не поддерживает видео.
+    </video>
+
+    <h2>Аудио</h2>
+    <audio controls>
+        <source src="audio.mp3" type="audio/mpeg">
+        <source src="audio.ogg" type="audio/ogg">
+        Ваш браузер не поддерживает аудио.
+    </audio>
+
+</body>
+</html>
